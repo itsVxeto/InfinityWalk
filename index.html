@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Walk</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* loader  */
+    .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--bgColor);
+        transition: opacity 0.75s, visibility 0.75s;
+    }
+
+    .loader-hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .loader::after {
+        content: '';
+        width: 50px;
+        height: 50px;
+        border: 10px solid #531c03;
+        border-top-color: #c4c4c4;
+        border-radius: 50%;
+        animation: loading 0.75s ease infinite;
+    }
+
+    @keyframes loading {
+        from {
+            transform: rotate(0turn);
+        } to {
+            transform: rotate(1turn) ;
+        }
+    }
+
+    #scrollingDiv {
+      transition: transform 0.3s ease; /* Aggiungi un'animazione di transizione per un effetto più fluido */
+    }
+
+    </style>
+</head>
+<body class="bg-[#13161b] text-[#e9e6e6] scroll-smooth">
+    <!-- navbar -->
+    <header class="bg-[#0f1216] h-[3.5rem] flex pt-2 pb-2 pl-16 justify-between rounded-xl">
+        <a class="text-4xl font-serif" href="#">Infinity Walk</a>
+
+        <nav class="h-auto w-[40%] flex gap-8 text-2xl justify-around">
+            <a class="hover:scale-125" href="#home">Home</a>
+            <a class="hover:scale-125" href="#about">Product</a>
+            <a class="hover:scale-125" href="#">Lorem</a>
+            <a class="hover:scale-125" href="#">Lorem</a>
+        </nav>
+    </header>
+    <!-- content -->
+    <div>
+        <div class="h-[200rem]">
+            <img class="w-full opacity-20" src="assets/example1.jpeg" alt="Sfondo esempio prodotto 1"> 
+                <div id="scrollingDiv" class="bg-[#11151a] p-4 text-white fixed top-[60rem] left-0 w-full h-full">
+                    <h1 class="text-7xl flex justify-center font-bold opacity-75">Infinity Walk</h1>
+                    <div class="bg-[#e9e6e6] w-[30rem] h-40 rounded-md flex justify-center p-14 gap-y-2 mt-20 ml-[30rem] hover:w-[60rem] hover:h-[50rem]">
+                        <h2 class="text-[#0f1216] text-3xl font-semibold">Who are our customers?</h2>
+                        <p class="hidden">The customers have an average age range of 14 to 40 years old and of course they must have interest for gaming or IT.</p>
+                    </div>
+                    <div class="bg-[#e9e6e6] w-[30rem] h-40 rounded-md flex justify-center p-14 gap-y-2 mt-20 ml-[30rem] hover:w-[60rem] hover:h-[50rem]">
+                        <h2 class="text-[#0f1216] text-3xl font-semibold">What is our customers want from us?</h2>
+                        <p class="hidden">Basically, the customers would want an innovative and immersive product in the realms of gaming or IT. Next the focus is on providing high-quality gaming software, graphics cards, and peripherals to meet the demand for high-performance equipment.</p>
+                    </div>
+                    <div class="bg-[#e9e6e6] w-[30rem] h-40 rounded-md flex justify-center p-14 gap-y-2 mt-20 ml-[30rem] hover:w-[60rem] hover:h-[50rem]">
+                        <h2 class="text-[#0f1216] text-3xl font-semibold">What is Infinity Walk?</h2>
+                        <p class="hidden">Step into the future of gaming with Infinity Walk, an exclusive flooring system designed for gaming purposes and for personal use. Offers a versatile movement in every direction making a simple walk into something more immersive, suitable for gaming experience. The product can have a suit add-on designed to feel the experience in an exclusive way.</p>
+                    </div>
+                    <div class="bg-[#e9e6e6] w-[30rem] h-40 rounded-md flex justify-center p-14 gap-y-2 mt-20 ml-[30rem] hover:w-[60rem] hover:h-[50rem]">
+                        <h2 class="text-[#0f1216] text-3xl font-semibold">Price</h2>
+                        <p class="hidden">The price is based on the cost of the materials, the fact that it’s an innovative and new product, the psychological effect and the way you buy the product (online or local shop).</p>
+                    </div>
+                    <div class="bg-[#e9e6e6] w-[30rem] h-40 rounded-md flex justify-center p-14 gap-y-2 mt-20 ml-[30rem] hover:w-[60rem] hover:h-[50rem]">
+                        <h2 class="text-[#0f1216] text-3xl font-semibold">How we are promoting?</h2>
+                        <p class="hidden">To have a better result the promotion involves advertisement on many famous online stores (like Facebook, Instagram, Amazon and Google).</p>
+                    </div>
+                    <div class="bg-[#e9e6e6] w-[30rem] h-40 rounded-md flex justify-center p-14 gap-y-2 mt-20 ml-[30rem] hover:w-[60rem] hover:h-[50rem]">
+                        <h2 class="text-[#0f1216] text-3xl font-semibold">Where you can find us?</h2>
+                        <p class="hidden">Our product can be sold in local shop or if you are too lazy, you can rely on our transport, which ensure maximum safety for online purchase.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    <!-- footer -->
+    <!-- <footer>
+        <p class="pt-16 px-4 text-center text-lg">
+            &copy; Infinity Walk - Tutti i diritti riservati.
+        </p>
+    </footer> -->
+    <div class="loader"></div>
+    <script>
+        window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader");
+
+            loader.classList.add("loader-hidden");
+
+            loader.addEventListener("transitionend", () => {
+                document.body.removeChild(loader);
+            });
+        });
+
+
+        window.addEventListener('scroll', function() {
+            const scrollingDiv = document.getElementById('scrollingDiv');
+            const scrollY = window.scrollY;
+
+
+            const heightOfMovingDiv = 700; 
+            scrollingDiv.style.transform = `translateY(${-scrollY * (heightOfMovingDiv / window.innerHeight)}px)`;
+        });
+
+    </script>
+</body>
+</html>
